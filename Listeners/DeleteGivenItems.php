@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\SyncDeletedItems;
+use Illuminate\Support\Facades\DB;
 
 class DeleteGivenItems
 {
@@ -21,11 +22,14 @@ class DeleteGivenItems
 
         $centralModel = new ($baseModel->getCentralModelName());
 
+        $centralConnection = config('tenancy.database.central_connection');
+
         foreach ($items as $item){
-            $centralModel::query()->where([
+            DB::connection($centralConnection)->query()->where([
                 $item->getGlobalIdentifierKeyName()          => $item->getGlobalIdentifierKey(),
                 $centralModel->getCentralForeignKeyName()    => $item->getKey(),
             ])->delete();
         }
+
     }
 }
