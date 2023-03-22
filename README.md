@@ -59,7 +59,7 @@ getSyncedAttributeNames()
 
 > Central Vehicle Model is
 
-```
+```php
 <?php
 
 namespace App\Models\Synced;
