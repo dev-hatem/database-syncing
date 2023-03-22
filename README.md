@@ -52,7 +52,7 @@ this method return the equivalent central model class which represent the centra
 
 
 `
-getSyncedAttributeNames()
+getCentralModelName()
 `
 
 #### Example
