@@ -187,3 +187,6 @@ class Vehicle extends Model implements Syncable
       
 ```
 > Important make sure  ```to make the (many to many) table name in central database with the same name of tenant database```
+```
+if the same model used dont use the CentralConnection trait
+```
